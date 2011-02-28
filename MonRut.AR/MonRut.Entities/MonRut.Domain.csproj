@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F03A860-B311-4F8A-BC70-8AF00E236FC3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MonRut.Entities</RootNamespace>
+    <AssemblyName>MonRut.Entities</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties InternalTargetFrameworkVersion="3.5" />
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Compile Include="Bus.cs" />
+    <Compile Include="Driver.cs" />
+    <Compile Include="Route.cs" />
+    <Compile Include="Station.cs" />
+    <Compile Include="Person.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Castle.ActiveRecord, Version=2.1.2.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\AR\Castle.ActiveRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Components.Validator, Version=1.1.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\AR\Castle.Components.Validator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

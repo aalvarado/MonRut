@@ -1,0 +1,27 @@
+Descargue el gtk# para poder instalar mono develop, baje la version mas nueva de mono develop y la instale. 
+
+hice checkout con tortoise git de git://github.com/mariochavez/Cesun-AppDistribuidas.git 
+
+Descargue active record (AR) de http://www.castleproject.org/castle/projects.html 2.1.2
+igualmente descargue core de castle project: http://sourceforge.net/projects/castleproject/files/Core/2.5/Castle.Core.2.5.2.zip/download
+
+corri wamp server para ejecutar mysql Server version: 5.1.36-community-log
+
+se creo la bd MonRut-DB
+
+se creo la solucion MonRut.AR
+	se creo el proyecto MonRut.UI
+	Se creo el proyecto MonRut.Domain
+	
+
+Baje el ado.net mysql driver de : http://www.mysql.com/downloads/connector/net/
+	http://www.mysql.com/downloads/mirror.php?id=399565#mirrors
+	
+se agregaron las referencias en ui y domain
+se agrego la referencia de mysql v2 a ui
+
+se crearon las clases del dominio
+
+
+
+

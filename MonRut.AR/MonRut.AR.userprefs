@@ -1,0 +1,28 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MonRut.UI\Main.cs">
+    <Files>
+      <File FileName="MonRut.Entities\Bus.cs" Line="16" Column="28" />
+      <File FileName="MonRut.Entities\Driver.cs" Line="8" Column="57" />
+      <File FileName="MonRut.Entities\Route.cs" Line="17" Column="28" />
+      <File FileName="MonRut.Entities\Station.cs" Line="45" Column="28" />
+      <File FileName="MonRut.Entities\Person.cs" Line="29" Column="28" />
+      <File FileName="MonRut.UI\Main.cs" Line="22" Column="81" />
+      <File FileName="MonRut.UI\arconfig.xml" Line="4" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="MonRut.Domain" expanded="True" />
+          <Node name="MonRut.UI" expanded="True">
+            <Node name="Main.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
