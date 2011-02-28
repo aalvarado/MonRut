@@ -1,1 +1,1 @@
-Sistema de monitoreo de rutas (MonRut)Es una aplicacion creada con c# para la clase de Plataformas propietarias 5.
+Sistema de monitoreo de rutas (MonRut)Es una aplicacion creada con c# para la clase de Plataformas propietarias 5.Editar el archivo MonRut.AR\MonRut.UI\arconfig.xml.example con los datos de la bd y renombrarlo a arconfig.xml

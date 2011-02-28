@@ -13,7 +13,7 @@
 	        value="NHibernate.Connection.DriverConnectionProvider" />
 	    <add 
 	        key="connection.connection_string"    
-	        value="Server=localhost;Database=monrut-db;User Id=MonRut;Password=MonRut" />
+	        value="Server=localhost;Database=monrut-db;User Id=YourUser;Password=YourPass" />
 	  
 	  	<add
 	  		key="proxyfactory.factory_class"
