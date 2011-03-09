@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonRut.UI", "MonRut.UI\MonR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonRut.Domain", "MonRut.Entities\MonRut.Domain.csproj", "{4F03A860-B311-4F8A-BC70-8AF00E236FC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonRut.Remoting.Server", "Monrut.Remoting.Server\MonRut.Remoting.Server.csproj", "{604CF812-BAF9-4BFC-B974-DF2C8526B617}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonRut.Remoting.Client", "MonRut.Remoting.Client\MonRut.Remoting.Client.csproj", "{DC10E8D9-7B69-49CE-AA93-C80E3379AB0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,8 +23,16 @@ Global
 		{4F03A860-B311-4F8A-BC70-8AF00E236FC3}.Debug|x86.Build.0 = Debug|x86
 		{4F03A860-B311-4F8A-BC70-8AF00E236FC3}.Release|x86.ActiveCfg = Release|x86
 		{4F03A860-B311-4F8A-BC70-8AF00E236FC3}.Release|x86.Build.0 = Release|x86
+		{604CF812-BAF9-4BFC-B974-DF2C8526B617}.Debug|x86.ActiveCfg = Debug|x86
+		{604CF812-BAF9-4BFC-B974-DF2C8526B617}.Debug|x86.Build.0 = Debug|x86
+		{604CF812-BAF9-4BFC-B974-DF2C8526B617}.Release|x86.ActiveCfg = Release|x86
+		{604CF812-BAF9-4BFC-B974-DF2C8526B617}.Release|x86.Build.0 = Release|x86
+		{DC10E8D9-7B69-49CE-AA93-C80E3379AB0C}.Debug|x86.ActiveCfg = Debug|x86
+		{DC10E8D9-7B69-49CE-AA93-C80E3379AB0C}.Debug|x86.Build.0 = Debug|x86
+		{DC10E8D9-7B69-49CE-AA93-C80E3379AB0C}.Release|x86.ActiveCfg = Release|x86
+		{DC10E8D9-7B69-49CE-AA93-C80E3379AB0C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = MonRut.UI\MonRut.UI.csproj
+		StartupItem = MonRut.Remoting.Client\MonRut.Remoting.Client.csproj
 	EndGlobalSection
 EndGlobal

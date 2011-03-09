@@ -1,21 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MonRut.UI\Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Monrut.Remoting.Server\RemotingServer.cs">
     <Files>
-      <File FileName="MonRut.Entities\Bus.cs" Line="16" Column="28" />
-      <File FileName="MonRut.Entities\Driver.cs" Line="8" Column="57" />
-      <File FileName="MonRut.Entities\Route.cs" Line="17" Column="28" />
-      <File FileName="MonRut.Entities\Station.cs" Line="45" Column="28" />
-      <File FileName="MonRut.Entities\Person.cs" Line="29" Column="28" />
-      <File FileName="MonRut.UI\Main.cs" Line="22" Column="81" />
-      <File FileName="MonRut.UI\arconfig.xml" Line="4" Column="10" />
+      <File FileName="MonRut.Remoting.Client\Main.cs" Line="3" Column="1" />
+      <File FileName="Monrut.Remoting.Server\Server.exe.config" Line="13" Column="45" />
+      <File FileName="MonRut.Remoting.Client\RemotingClient.config" Line="5" Column="12" />
+      <File FileName="Monrut.Remoting.Server\RemotingServer.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="MonRut.Domain" expanded="True" />
-          <Node name="MonRut.UI" expanded="True">
-            <Node name="Main.cs" selected="True" />
+          <Node name="MonRut.Remoting.Client" expanded="True" />
+          <Node name="MonRut.Remoting.Server" expanded="True">
+            <Node name="RemotingServer.cs" selected="True" />
           </Node>
         </State>
       </Pad>
