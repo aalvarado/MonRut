@@ -2,3 +2,7 @@
 /MonRut.AR/MonRut.Remoting.Client/bin
 /MonRut.AR/Monrut.Remoting.Server/bin
 /MonRut.AR/MonRut.UI/bin
+/MonRut.AR/MonRut.Entities/obj
+/MonRut.AR/MonRut.Remoting.Client/obj
+/MonRut.AR/Monrut.Remoting.Server/obj
+/MonRut.AR/MonRut.UI/obj
