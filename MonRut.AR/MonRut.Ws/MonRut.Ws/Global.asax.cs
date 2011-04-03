@@ -32,7 +32,7 @@ namespace MonRut.Ws
             {
                 // Console.WriteLine("excepcion" + ex.Message);
                 EventLog el = new EventLog();
-                el.Source = "test app";
+                el.Source = "Application";
                 el.WriteEntry(ex.Message);
 
             }

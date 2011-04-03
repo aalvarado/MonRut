@@ -44,7 +44,7 @@ namespace MonRut.Ws
             catch(Exception ex)
             {
                 EventLog el = new EventLog();
-                el.Source = "MonRutWs web service";
+                el.Source = "Application";
                 el.WriteEntry(ex.Message);
             }
 
