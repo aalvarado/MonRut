@@ -5,7 +5,7 @@ using Castle.Components.Validator;
 namespace MonRut.Domain
 {
 	[ActiveRecord(Table = "Routes")]
-	public class Route
+	public class Route : ActiveRecordValidationBase<Route>
 	{
 		
 		[PrimaryKey(PrimaryKeyType.Native)]
@@ -24,6 +24,7 @@ namespace MonRut.Domain
 		public Route ()
 		{
 		}
+
 	}
 }
 

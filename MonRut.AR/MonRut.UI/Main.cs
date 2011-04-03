@@ -27,7 +27,10 @@ namespace MonRut.UI
 				}
 			}
 			Console.WriteLine("presiona cualquier tecla para continuar");
-			Console.ReadLine();
+            Console.ReadLine();
+            Console.WriteLine("Introduce el nombre de la ruta");
+            String name = Console.ReadLine();
+            CreatRoute(name);
 			
 		}
 		
@@ -49,8 +52,19 @@ namespace MonRut.UI
 					Console.WriteLine("excepcion" + ex.Message);
 				}
 			Console.WriteLine("inicializando...");
-			
+
+            Route r = new Route();
+            
+
 		}
+
+        static void CreatRoute(string name)
+        {
+            Route r = new Route();
+            r.Name = name;
+            r.SaveAndFlush();
+            
+        }
 	}
 }
 
