@@ -1,0 +1,26 @@
+<publishData>
+  <publishTarget publishUrl="C:\inetpub\wwwroot\monrut\">
+    <file relUrl="bin/log4net.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="bin/Castle.Core.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="bin/Antlr3.Runtime.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="Web.config" publishTime="04/02/2011 21:08:42" />
+    <file relUrl="bin/Castle.ActiveRecord.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="bin/mysql.data.dll" publishTime="03/09/2011 15:03:00" />
+    <file relUrl="bin/MonRut.Entities.dll" publishTime="04/02/2011 20:58:15" />
+    <file relUrl="bin/arconfig.xml" publishTime="04/02/2011 20:57:32" />
+    <file relUrl="Global.asax" publishTime="04/02/2011 20:38:13" />
+    <file relUrl="MonRutWs.asmx" publishTime="04/02/2011 18:43:23" />
+    <file relUrl="bin/NHibernate.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="bin/NHibernate.Search.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="bin/NHibernate.ByteCode.Castle.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="bin/Castle.ActiveRecord.xml" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="bin/MonRut.Entities.pdb" publishTime="04/02/2011 18:04:59" />
+    <file relUrl="bin/MonRut.Ws.dll" publishTime="04/02/2011 21:09:19" />
+    <file relUrl="bin/Castle.DynamicProxy2.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="bin/Castle.Components.Validator.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="Default.aspx" publishTime="04/02/2011 18:43:06" />
+    <file relUrl="bin/Lucene.Net.dll" publishTime="03/09/2011 15:02:59" />
+    <file relUrl="bin/MonRut.Ws.pdb" publishTime="04/02/2011 21:09:19" />
+    <file relUrl="bin/Iesi.Collections.dll" publishTime="03/09/2011 15:02:59" />
+  </publishTarget>
+</publishData>
