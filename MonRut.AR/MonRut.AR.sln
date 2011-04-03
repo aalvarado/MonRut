@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonRut.UI", "MonRut.UI\MonRut.UI.csproj", "{322714A6-03FC-4EE4-94A4-C77CEBAED272}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonRut.Domain", "MonRut.Entities\MonRut.Domain.csproj", "{4F03A860-B311-4F8A-BC70-8AF00E236FC3}"
@@ -31,6 +31,9 @@ Global
 		{DC10E8D9-7B69-49CE-AA93-C80E3379AB0C}.Debug|x86.Build.0 = Debug|x86
 		{DC10E8D9-7B69-49CE-AA93-C80E3379AB0C}.Release|x86.ActiveCfg = Release|x86
 		{DC10E8D9-7B69-49CE-AA93-C80E3379AB0C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = MonRut.Remoting.Client\MonRut.Remoting.Client.csproj
