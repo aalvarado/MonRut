@@ -30,24 +30,26 @@ namespace MonRut.Ws
         }
 
         [WebMethod]
-        public string CreateRoute(string name)
+        public bool AddRoute(string name)
         {
-            string msg = "";
+            bool isCreated = false;
             Route r = new Route();
             r.Name = name;
 
             try
             {
                 r.SaveAndFlush();
-                msg = "se creo la ruta";
+                isCreated = true;
             }
             catch(Exception ex)
             {
-                msg = ex.Message;
+                EventLog el = new EventLog();
+                el.Source = "MonRutWs web service";
+                el.WriteEntry(ex.Message);
             }
 
-
-            return msg;
+            return isCreated;
         }
     }
 }
+;
