@@ -14,7 +14,7 @@ namespace MonRut.Domain
         private int zipcode;
         private string state;
         private int number;
-
+        
         private Route route;
 
         public Station() { }

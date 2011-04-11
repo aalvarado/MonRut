@@ -20,6 +20,7 @@ namespace MonRut.Ws
     // [System.Web.Script.Services.ScriptService]
     public class MonRutWs : System.Web.Services.WebService
     {
+
         // 'Route' methods
         [WebMethod]
         public Route GetRoute(int id)
@@ -35,7 +36,7 @@ namespace MonRut.Ws
         [WebMethod]
         public Route[] GetRouteList(int from, int max)
         {
-            Route[] routes = Route.FindAll();
+            Route[] routes = Route.SlicedFindAll(from,max);
             
             return routes;
         }
@@ -108,7 +109,6 @@ namespace MonRut.Ws
         }
         
 
-
         // Driver methods
         [WebMethod]
         public Driver GetDriver(int id)
@@ -119,6 +119,14 @@ namespace MonRut.Ws
                 throw new NotFoundException("Route not found: " + id.ToString());
             }
             return d;
+        }
+
+        [WebMethod]
+        public Driver[] GetDriverList(int from, int max)
+        {
+            Driver[] drivers = Driver.SlicedFindAll(from, max);
+
+            return drivers;
         }
 
         [WebMethod]
@@ -209,6 +217,13 @@ namespace MonRut.Ws
         }
 
         [WebMethod]
+        public Bus[] GetBusList(int from, int max)
+        {
+            Bus[] buses = Bus.SlicedFindAll(from, max);
+            return buses;
+        }
+
+        [WebMethod]
         public bool AddBus(int number, int capacity)
         {
             bool isOperationSuccessful = false;
@@ -296,10 +311,16 @@ namespace MonRut.Ws
         }
 
         [WebMethod]
-        public bool AddStation(string name, string city,string district, int zipcode, string state, int number)
+        public Station[] GetStationList(int from, int max)
+        {
+            Station[] stations = Station.SlicedFindAll(from, max);
+            return stations;
+        }
+
+        [WebMethod]
+        public bool AddStation(string name, string city,string district, int zipcode, string state, int number, int routeId)
         {
             bool isOperationSuccessful = false;
-            Bus b = new Bus();
             Station s = new Station();
 
             s.Name = name;
@@ -308,6 +329,17 @@ namespace MonRut.Ws
             s.ZipCode = zipcode;
             s.State = state;
             s.Number = number;
+
+            Route r = Route.Find(routeId);
+
+            Object[] timeCheckFields = {r};
+            foreach (Object item in timeCheckFields)
+            {
+                if (item == null)
+                {
+                    throw new NotFoundException(item.ToString() + "not found");
+                }
+            }
 
             try
             {
@@ -325,7 +357,7 @@ namespace MonRut.Ws
         }
 
         [WebMethod]
-        public bool UpdateStation(int id, string name, string city, string district, int zipcode, string state, int number)
+        public bool UpdateStation(int id, string name, string city, string district, int zipcode, string state, int number,int routeId)
         {
             bool isOperationSuccessful = false;
             Station s = Station.Find(id);
@@ -337,6 +369,17 @@ namespace MonRut.Ws
                 s.ZipCode = zipcode;
                 s.State = state;
                 s.Number = number;
+
+                Route r = Route.Find(routeId);
+
+                Object[] timeCheckFields = { r };
+                foreach (Object item in timeCheckFields)
+                {
+                    if (item == null)
+                    {
+                        throw new NotFoundException(item.ToString() + "not found");
+                    }
+                }
 
                 try
                 {
@@ -375,6 +418,7 @@ namespace MonRut.Ws
             return isOperationSuccessful;
         }
 
+       
         // TimeCheck methods
         [WebMethod]
         public TimeCheck GetTimeCheck(int id)
@@ -391,18 +435,16 @@ namespace MonRut.Ws
         public bool AddTimeCheck(int driverId, int routeId, int stationId)
         {
             bool isOperationSuccessful = false;
-            bool areFieldsFound = true;
             
             Driver d = Driver.Find(driverId);
             Route r = Route.Find(routeId);
             Station s = Station.Find(stationId);
 
             Object[] timeCheckFields ={d,r,s};
-            foreach (var item in timeCheckFields)
+            foreach (Object item in timeCheckFields)
             {
-                if(item ==null){
+                if(item == null){
                     throw new NotFoundException(item.ToString() + "not found");
-                    break;
                 }
             }
             TimeCheck t = new TimeCheck();
@@ -430,19 +472,17 @@ namespace MonRut.Ws
         public bool UpdateTimeCheck(int id, int driverId, int routeId, int stationId, DateTime timeStamp)
         {
             bool isOperationSuccessful = false;
-            bool areFieldsFound = true;
 
             Driver d = Driver.Find(driverId);
             Route r = Route.Find(routeId);
             Station s = Station.Find(stationId);
 
             Object[] timeCheckFields = {d, r, s };
-            foreach (var item in timeCheckFields)
+            foreach (Object item in timeCheckFields)
             {
                 if (item == null)
                 {
                     throw new NotFoundException(item.ToString() + "not found");
-                    break;
                 }
             }
             TimeCheck t = TimeCheck.Find(id);
