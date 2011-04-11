@@ -20,7 +20,20 @@ namespace MonRut.Ws
     // [System.Web.Script.Services.ScriptService]
     public class MonRutWs : System.Web.Services.WebService
     {
+        private bool isObjectSetNull(Object[] objs)
+        {
+            bool isNull = false;
 
+            foreach (Object item in objs)
+            {
+                if (item == null)
+                {
+                    isNull = true;
+                    break;
+                }
+            }
+            return isNull;
+        }
         // 'Route' methods
         [WebMethod]
         public Route GetRoute(int id)
@@ -130,16 +143,18 @@ namespace MonRut.Ws
         }
 
         [WebMethod]
-        public bool AddDriver(string firstName, string lastName, int age)
+        public bool AddDriver(string firstName, string lastName, int age, int userId)
         {
             bool isOperationSuccessful = false;
             //Route r = new Route();
             //r.Name = name;
-
+            User u = MonRut.Domain.User.Find(userId);
+            
             Driver d = new Driver();
             d.FirstName = firstName;
             d.LastName = lastName;
             d.Age = age;
+            d.User = u;
 
             try
             {
@@ -157,15 +172,19 @@ namespace MonRut.Ws
         }
 
         [WebMethod]
-        public bool UpdateDriver(int id, string firstName,string lastName, int age)
+        public bool UpdateDriver(int id, string firstName,string lastName, int age, int userId)
         {
             bool isOperationSuccessful = false;
+
+            User u = MonRut.Domain.User.Find(userId);
             Driver d = Driver.Find(id);
+
             if (d != null)
             {
                 d.FirstName = firstName;
                 d.LastName = lastName;
                 d.Age = age;
+                d.User = u;
                 try
                 {
                     d.SaveAndFlush();
@@ -321,6 +340,16 @@ namespace MonRut.Ws
         public bool AddStation(string name, string city,string district, int zipcode, string state, int number, int routeId)
         {
             bool isOperationSuccessful = false;
+
+            Route r = Route.Find(routeId);
+            
+            Object[] timeCheckFields = { r };
+            
+            if (isObjectSetNull(timeCheckFields))
+            {
+                throw new NotFoundException("Parameters cannot be null");
+            }
+
             Station s = new Station();
 
             s.Name = name;
@@ -329,17 +358,7 @@ namespace MonRut.Ws
             s.ZipCode = zipcode;
             s.State = state;
             s.Number = number;
-
-            Route r = Route.Find(routeId);
-
-            Object[] timeCheckFields = {r};
-            foreach (Object item in timeCheckFields)
-            {
-                if (item == null)
-                {
-                    throw new NotFoundException(item.ToString() + "not found");
-                }
-            }
+            s.Route = r;
 
             try
             {
@@ -360,6 +379,14 @@ namespace MonRut.Ws
         public bool UpdateStation(int id, string name, string city, string district, int zipcode, string state, int number,int routeId)
         {
             bool isOperationSuccessful = false;
+            Route r = Route.Find(routeId);
+            Object[] timeCheckFields = { r };
+
+            if (isObjectSetNull(timeCheckFields))
+            {
+                throw new NotFoundException("Parameters cannot be null");
+            }
+
             Station s = Station.Find(id);
             if (s != null)
             {
@@ -369,17 +396,7 @@ namespace MonRut.Ws
                 s.ZipCode = zipcode;
                 s.State = state;
                 s.Number = number;
-
-                Route r = Route.Find(routeId);
-
-                Object[] timeCheckFields = { r };
-                foreach (Object item in timeCheckFields)
-                {
-                    if (item == null)
-                    {
-                        throw new NotFoundException(item.ToString() + "not found");
-                    }
-                }
+                s.Route = r;
 
                 try
                 {
@@ -426,7 +443,7 @@ namespace MonRut.Ws
             TimeCheck t = TimeCheck.Find(id);
             if (t == null)
             {
-                throw new NotFoundException("Route not found: " + id.ToString());
+                throw new NotFoundException("TimeCheck not found: " + id.ToString());
             }
             return t;
         }
@@ -441,11 +458,9 @@ namespace MonRut.Ws
             Station s = Station.Find(stationId);
 
             Object[] timeCheckFields ={d,r,s};
-            foreach (Object item in timeCheckFields)
+            if (isObjectSetNull(timeCheckFields))
             {
-                if(item == null){
-                    throw new NotFoundException(item.ToString() + "not found");
-                }
+                throw new NotFoundException("Parameters cannot be null");
             }
             TimeCheck t = new TimeCheck();
             t.Driver = d;
@@ -478,12 +493,9 @@ namespace MonRut.Ws
             Station s = Station.Find(stationId);
 
             Object[] timeCheckFields = {d, r, s };
-            foreach (Object item in timeCheckFields)
+            if (isObjectSetNull(timeCheckFields))
             {
-                if (item == null)
-                {
-                    throw new NotFoundException(item.ToString() + "not found");
-                }
+                throw new NotFoundException("Parameters cannot be null");
             }
             TimeCheck t = TimeCheck.Find(id);
             if (t != null)
@@ -532,6 +544,100 @@ namespace MonRut.Ws
             return isOperationSuccessful;
         }
 
+
+        // User methods
+        [WebMethod]
+        public User GetUser(int id)
+        {
+            User u = MonRut.Domain.User.Find(id);
+            if (u == null)
+            {
+                throw new NotFoundException("User not found: " + id.ToString());
+            }
+            return u;
+        }
+
+        [WebMethod]
+        public User[] GetUserList(int from, int max)
+        {
+            User[] users = MonRut.Domain.User.SlicedFindAll(from, max);
+
+            return users;
+        }
+
+        [WebMethod]
+        public bool AddUser(string name, string hash, bool isAdmin)
+        {
+            bool isOperationSuccessful = false;
+            //Route r = new Route();
+            //r.Name = name;
+
+            User u = new User();
+            u.Name = name;
+            u.Hash = hash;
+            u.IsAdmin = isAdmin;
+
+            try
+            {
+                u.SaveAndFlush();
+                isOperationSuccessful = true;
+            }
+            catch (Exception ex)
+            {
+                EventLog el = new EventLog();
+                el.Source = "Application";
+                el.WriteEntry(ex.Message);
+            }
+
+            return isOperationSuccessful;
+        }
+
+        [WebMethod]
+        public bool UpdateUser(int id, string name, string hash, bool isAdmin)
+        {
+            bool isOperationSuccessful = false;
+            User u = MonRut.Domain.User.Find(id);
+            if (u != null)
+            {
+                u.Name = name;
+                u.Hash = hash;
+                u.IsAdmin = isAdmin;
+                try
+                {
+                    u.SaveAndFlush();
+                    isOperationSuccessful = true;
+                }
+                catch (Exception ex)
+                {
+                    EventLog el = new EventLog();
+                    el.Source = "Application";
+                    el.WriteEntry(ex.Message);
+                }
+            }
+            return isOperationSuccessful;
+        }
+
+        [WebMethod]
+        public bool DeleteUser(int id)
+        {
+            bool isOperationSuccessful = false;
+            User u = MonRut.Domain.User.Find(id);
+            if (u != null)
+            {
+                try
+                {
+                    u.DeleteAndFlush();
+                    isOperationSuccessful = true;
+                }
+                catch (Exception ex)
+                {
+                    EventLog el = new EventLog();
+                    el.Source = "Application";
+                    el.WriteEntry(ex.Message);
+                }
+            }
+            return isOperationSuccessful;
+        }
     }
 }
 ;

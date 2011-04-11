@@ -20,9 +20,10 @@ namespace MonRut.Domain
             get { return id; }
             set { id = value; }
 		}
-		
-		[Property(NotNull = true)]
+
+        [Property(NotNull = true, Unique = true)]
 		[ValidateNonEmpty("No debe de estar vacio")]
+        [ValidateIsUnique("Nombre ya existe")]
 		public string Name {
             get { return name; }
             set { name = value; }

@@ -54,7 +54,8 @@ namespace MonRut.UI
 			                               typeof(Driver),
 			                               typeof(Route),
 			                               typeof(Station),
-                                           typeof(TimeCheck)
+                                           typeof(TimeCheck),
+                                           typeof(User)
 			                               );
 			}
 			catch( Exception ex)

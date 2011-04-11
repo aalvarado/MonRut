@@ -48,6 +48,7 @@
     <Compile Include="Route.cs" />
     <Compile Include="Station.cs" />
     <Compile Include="TimeCheck.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Castle.ActiveRecord, Version=2.1.2.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
@@ -58,5 +59,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\AR\Castle.Components.Validator.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
 </Project>

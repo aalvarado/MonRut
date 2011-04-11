@@ -13,6 +13,7 @@ namespace MonRut.Domain
         private string lastname;
         private int age;
 
+        private User user;
 
         public Driver()
         {
@@ -44,8 +45,13 @@ namespace MonRut.Domain
             get { return age; }
             set { age = value; }
 		}
-		
 
+        [BelongsTo("UserId")]
+        public User User
+        {
+            get { return user; }
+            set { user = value; }
+        }
 	}
 }
 
