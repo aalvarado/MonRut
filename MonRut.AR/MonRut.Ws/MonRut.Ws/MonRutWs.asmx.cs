@@ -37,7 +37,6 @@ namespace MonRut.Ws
         {
             Route[] routes = Route.FindAll();
             
-            //Route r = Route.Find(id);
             return routes;
         }
 
@@ -378,7 +377,7 @@ namespace MonRut.Ws
 
         // TimeCheck methods
         [WebMethod]
-        public Station GetTimeCheck(int id)
+        public TimeCheck GetTimeCheck(int id)
         {
             TimeCheck t = TimeCheck.Find(id);
             if (t == null)
@@ -398,7 +397,7 @@ namespace MonRut.Ws
             Route r = Route.Find(routeId);
             Station s = Station.Find(stationId);
 
-            Object[] timeCheckFields ={t,d,r,s};
+            Object[] timeCheckFields ={d,r,s};
             foreach (var item in timeCheckFields)
             {
                 if(item ==null){
@@ -437,7 +436,7 @@ namespace MonRut.Ws
             Route r = Route.Find(routeId);
             Station s = Station.Find(stationId);
 
-            Object[] timeCheckFields = { t, d, r, s };
+            Object[] timeCheckFields = {d, r, s };
             foreach (var item in timeCheckFields)
             {
                 if (item == null)
