@@ -4,39 +4,48 @@ using Castle.Components.Validator;
 
 namespace MonRut.Domain
 {
-	[ActiveRecord(Table = "Drivers")]
+	[ActiveRecord]
 	public class Driver : ActiveRecordValidationBase<Driver>
 	{
+
+        private int id;
+        private string firstname;
+        private string lastname;
+        private int age;
+
+
+        public Driver()
+        {
+        }
+
 		[PrimaryKey(PrimaryKeyType.Native)]
 		public int Id {
-			get;
-			set;
+            get { return id; }
+            set { id = value; }
 		}
 		
 		[Property(NotNull = true)]
 		[ValidateNonEmpty("No debe de estar vacio")]
 		public string FirstName {
-			get;
-			set;
+            get { return firstname; }
+            set { firstname = value; }
 		}
 		
 		[Property(NotNull = true)]
 		[ValidateNonEmpty("No debe de estar vacio")]		
 		public string LastName {
-			get;
-			set;
+            get { return lastname; }
+            set { lastname = value; }
 		}
 		
 		[Property(NotNull = true)]
 		[ValidateNonEmpty("No debe de estar vacio")]		
 		public int Age {
-			get;
-			set;
+            get { return age; }
+            set { age = value; }
 		}
 		
-		public Driver ()
-		{
-		}
+
 	}
 }
 

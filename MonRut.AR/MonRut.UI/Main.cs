@@ -26,12 +26,21 @@ namespace MonRut.UI
 					Console.WriteLine("excepcion" + ex.Message);
 				}
 			}
-			Console.WriteLine("presiona cualquier tecla para continuar");
+
+            Console.WriteLine("presiona cualquier tecla para continuar");
             Console.ReadLine();
-            Console.WriteLine("Introduce el nombre de la ruta");
-            String name = Console.ReadLine();
-            CreatRoute(name);
-			
+
+            Console.WriteLine("desea agregar una ruta de prueba?");
+            response = Console.ReadLine();
+            if (response.ToLower() == "s")
+            {
+                Console.WriteLine("Introduce el nombre de la ruta");
+                String name = Console.ReadLine();
+                CreatRoute(name);
+            
+            }
+            Console.WriteLine("presiona cualquier tecla para cerrar la ventana");
+            Console.ReadLine();
 		}
 		
 		private static void Init()
@@ -44,7 +53,8 @@ namespace MonRut.UI
 			                               typeof(Bus),
 			                               typeof(Driver),
 			                               typeof(Route),
-			                               typeof(Station)
+			                               typeof(Station),
+                                           typeof(TimeCheck)
 			                               );
 			}
 			catch( Exception ex)
@@ -53,7 +63,7 @@ namespace MonRut.UI
 				}
 			Console.WriteLine("inicializando...");
 
-            Route r = new Route();
+            
             
 
 		}

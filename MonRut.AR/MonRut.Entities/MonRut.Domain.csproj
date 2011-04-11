@@ -47,6 +47,7 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="Station.cs" />
+    <Compile Include="TimeCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Castle.ActiveRecord, Version=2.1.2.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">

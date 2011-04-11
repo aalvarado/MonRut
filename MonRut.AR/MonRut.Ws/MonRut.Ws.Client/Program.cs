@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace MonRut.Ws.Client
 {
     class Program
     {
         static void Main(string[] args)
+        {
+
+            testnewws();
+
+        }
+        static void testws()
         {
             Console.WriteLine("Introduce el nombre de una ruta");
             string name = Console.ReadLine();
@@ -23,7 +30,14 @@ namespace MonRut.Ws.Client
 
                 Console.WriteLine(ex.Message);
             }
+        }
 
+        static void testnewws()
+        {
+            
+    
+
+            //Console.WriteLine(svc.HelloWorld());
 
         }
     }
