@@ -1,0 +1,85 @@
+﻿/*===================================== css resets ===========================*/
+html,body,div,form,img, h1, h2, h3, h4, h5, h6,
+ iframe, p, span, ul, ol, li, fieldset, legend {
+	padding:0px;
+	margin:0px;
+	border:0px;
+}
+
+a:link		{	text-decoration : none	}
+a:visited	{	text-decoration : none	}
+a:hover		{	text-decoration : none	}
+a:active	{	text-decoration : none	}
+
+p           {   padding-top: 5px;   }
+
+body 
+{
+	font-family: Arial,"Times New Roman", Times, serif;
+	font-size: 14px;
+}
+
+
+#headder
+{
+    width:973px;
+    height:20px;
+    background-color:#3B240B;
+    margin:5px 0px;
+    color:White;
+    font-size: 20px;
+    padding:15px 10px;
+}
+
+#middle
+{
+    width:993px;
+    height:1100px;
+    background-color:#F3F781;
+}
+
+.catalogs1
+{
+    width:318px;
+    height:655px;
+    border: 1px solid White;
+    float:left;
+    margin: 5px 5px;
+}
+
+.catalogs2
+{
+    width:318px;
+    height:420px;
+    border: 1px solid White;
+    float:left;
+    margin: 5px 5px;
+}
+
+.catalog_section
+{
+    width:960px;
+    height:240;
+    float:left;
+}
+
+.catalogs_title
+{
+    width:318px;
+    height:38px;
+    color:#3B240B;
+    background-color:White;
+    float:left;
+    font-size:24px;
+}
+
+.catalogs_row
+{
+    width:308px;
+    height:45px;
+    float:left;
+    font-size:18px;
+    margin-top:5px;
+    margin-left:5px;
+}
+
