@@ -5,6 +5,7 @@ using Castle.Components.Validator;
 namespace MonRut.Domain
 {
 	[ActiveRecord]
+    [Serializable]
 	public class Station : ActiveRecordValidationBase<Station>
 	{
         private int id;
@@ -20,7 +21,7 @@ namespace MonRut.Domain
         public Station() { }
         
         [PrimaryKey(PrimaryKeyType.Native)]	
-		private int Id {
+		public int Id {
 			get{return id;}
 			set {id = value;}
 		}

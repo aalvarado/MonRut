@@ -30,7 +30,7 @@ namespace MonRut.UI
             Console.WriteLine("presiona cualquier tecla para continuar");
             Console.ReadLine();
 
-            Console.WriteLine("desea agregar una ruta de prueba?");
+            Console.WriteLine("desea agregar informacion de prueba?");
             response = Console.ReadLine();
             if (response.ToLower() == "s")
             {
@@ -74,7 +74,11 @@ namespace MonRut.UI
             Route r = new Route();
             r.Name = name;
             r.SaveAndFlush();
-            
+        }
+
+        static void CreateAdmin()
+        {
+            User u = new User("admin", "admin");
         }
 	}
 }

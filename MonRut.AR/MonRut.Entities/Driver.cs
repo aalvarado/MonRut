@@ -5,6 +5,7 @@ using Castle.Components.Validator;
 namespace MonRut.Domain
 {
 	[ActiveRecord]
+    [Serializable]
 	public class Driver : ActiveRecordValidationBase<Driver>
 	{
 

@@ -24,7 +24,8 @@ namespace MonRut.Ws
                                        typeof(Bus),
                                        typeof(Driver),
                                        typeof(Route),
-                                       typeof(Station)
+                                       typeof(Station),
+                                       typeof(MonRut.Domain.User)
                                        );
 
             }
