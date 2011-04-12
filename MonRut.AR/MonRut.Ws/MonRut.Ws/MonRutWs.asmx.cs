@@ -7,6 +7,8 @@ using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework.Config;
 using MonRut.Domain;
 using System.Diagnostics;
+using MonRut.Ws.Services;
+using MonRut.Ws.SoapHeaders;
 
 namespace MonRut.Ws
 {
@@ -20,6 +22,8 @@ namespace MonRut.Ws
     // [System.Web.Script.Services.ScriptService]
     public class MonRutWs : System.Web.Services.WebService
     {
+        public SecurityHeader securityHeader;
+
         private bool isObjectSetNull(Object[] objs)
         {
             bool isNull = false;
@@ -34,6 +38,8 @@ namespace MonRut.Ws
             }
             return isNull;
         }
+
+
         // 'Route' methods
         [WebMethod]
         public Route GetRoute(int id)
@@ -143,18 +149,16 @@ namespace MonRut.Ws
         }
 
         [WebMethod]
-        public bool AddDriver(string firstName, string lastName, int age, int userId)
+        public bool AddDriver(string firstName, string lastName, int age)
         {
             bool isOperationSuccessful = false;
             //Route r = new Route();
             //r.Name = name;
-            User u = MonRut.Domain.User.Find(userId);
-            
+                        
             Driver d = new Driver();
             d.FirstName = firstName;
             d.LastName = lastName;
             d.Age = age;
-            d.User = u;
 
             try
             {
@@ -172,11 +176,11 @@ namespace MonRut.Ws
         }
 
         [WebMethod]
-        public bool UpdateDriver(int id, string firstName,string lastName, int age, int userId)
+        public bool UpdateDriver(int id, string firstName,string lastName, int age)
         {
             bool isOperationSuccessful = false;
 
-            User u = MonRut.Domain.User.Find(userId);
+            
             Driver d = Driver.Find(id);
 
             if (d != null)
@@ -184,7 +188,7 @@ namespace MonRut.Ws
                 d.FirstName = firstName;
                 d.LastName = lastName;
                 d.Age = age;
-                d.User = u;
+                
                 try
                 {
                     d.SaveAndFlush();
@@ -243,7 +247,7 @@ namespace MonRut.Ws
         }
 
         [WebMethod]
-        public bool AddBus(int number, int capacity)
+        public bool AddBus(int number, int seats, int capacity)
         {
             bool isOperationSuccessful = false;
             //Route r = new Route();
@@ -251,7 +255,7 @@ namespace MonRut.Ws
             Bus b = new Bus();
 
             b.Number = number;
-            b.Seats = 0;
+            b.Seats = seats;
             b.Capacity = capacity;
             try
             {
@@ -322,6 +326,7 @@ namespace MonRut.Ws
         public Station GetStation(int id)
         {
             Station s = Station.Find(id);
+            
             if (s == null)
             {
                 throw new NotFoundException("Route not found: " + id.ToString());

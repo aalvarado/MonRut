@@ -1,16 +1,31 @@
 ﻿using System;
 using Castle.ActiveRecord;
 using Castle.Components.Validator;
+using NHibernate.Criterion;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace MonRut.Domain
 {
     [ActiveRecord]
+    [Serializable]
     public class User : ActiveRecordValidationBase<User>
     {
         private int id;
         private string name;
         private string hash;
         private bool isAdmin;
+
+        public User()
+        {
+
+        }
+
+        public User(string name, string hash)
+        {
+            this.Name = name;
+            this.Hash = hash;
+        }
 
         [PrimaryKey(PrimaryKeyType.Native)]
         public int Id
@@ -33,7 +48,10 @@ namespace MonRut.Domain
 
         {
             get { return hash; }
-            set { hash = value; } 
+            set 
+            {
+                hash = value;
+            } 
         }
 
         [Property(NotNull = true)]
@@ -43,5 +61,18 @@ namespace MonRut.Domain
             get { return isAdmin; }
             set { isAdmin = value; } 
         }
+
+        public static User FindByUserName(string name)
+        {
+            return FindOne(Expression.Eq("Name",name));
+        }
+        
+        public static int GetUsersCount()
+        {
+            return Count();
+        }
+
+        
+
     }
 }

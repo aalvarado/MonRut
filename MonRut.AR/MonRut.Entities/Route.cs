@@ -6,6 +6,7 @@ using System.Collections.Generic;
 namespace MonRut.Domain
 {
 	[ActiveRecord]
+    [Serializable]
 	public class Route : ActiveRecordValidationBase<Route>
 	{
         private int id;
